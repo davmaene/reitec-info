@@ -587,8 +587,9 @@ function onGetParticipantById($g, $idformation)
             $pax = $lnrs[$j]['idEtudiant'];
             $clsEt = "WHERE id = $pax";
             $lnr = $g->onRetrieveData($tabSTD, $clsEt);
-            var_dump($lnr);
+            // var_dump($lnr);
             for ($i = 0; $i < count($lnr); $i++) {
+                // echo();
                 $std = new Learner(
                     $lnr[$i]['id'],
                     $lnr[$i]['nom'],
@@ -598,9 +599,9 @@ function onGetParticipantById($g, $idformation)
                     $lnr[$i]['genre'],
                     '',
                     ((int)$lnrs[$j]['status'] === 1) ? 1 : 0,
-                    $lnrs[$i]['typeSuply'],
+                    $lnr[$i]['typeSuply'],
                     $lnrs[$i]['shaCours'],
-                    $lnrs[$i]['onlineOrOffline']
+                    $lnr[$i]['onlineOrOffline']
                 );
                 array_push($tab, $std);
             }

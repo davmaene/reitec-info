@@ -28,11 +28,6 @@
                 <?php
                     $frm = (getAllFormation($g,25));
                 ?>
-                <pre>
-                    <?php 
-                        var_dump($frm);
-                    ?>
-                </pre>
                 <table class="table table-stripped table-bordered table-hover text-center">
                     <thead>
                         <tr>
