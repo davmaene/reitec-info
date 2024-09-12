@@ -1,14 +1,17 @@
-<?php 
-class Learner extends Student{
+<?php
+class Learner extends Student
+{
     // public $id;
     // public $nom;
     // public $email;
     // public $phone;
     public $key;
     public $emplacement;
-    public $status,$type;
+    public $status;
+    public $type;
 
-    public function __construct($id,$nom,$prenom,$email,$telephone,$genre,$NN,$status,$type,$key,$emplacement){
+    public function __construct($id, $nom, $prenom, $email, $telephone, $genre, $NN, $status, $type, $key, $emplacement)
+    {
         $this->id = $id;
         $this->nom = $nom;
         $this->prenom = $prenom;
@@ -22,4 +25,3 @@ class Learner extends Student{
         $this->type = $type;
     }
 }
-?>
