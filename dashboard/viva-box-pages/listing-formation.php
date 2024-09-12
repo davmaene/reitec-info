@@ -3,14 +3,6 @@
     $attributed = $fcls_['distCours'];
     $nattributed = $fcls_['notDistCours'];
 ?>
-<!-- <pre>
-    <?php 
-        // var_dump($fcls_);
-        // var_dump($fcls_['distCours']);
-        // echo('-------------------------- <br>');
-        // var_dump($fcls_['notDistCours']);
-    ?>
-</pre> -->
 <section>
     <div class="container">
         <h3 class="text-primary"><span class="fas fa-chevron-right mr-2"></span>Formations</h3>
