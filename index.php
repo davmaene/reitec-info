@@ -5,7 +5,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Reitec | info</title>
-  <meta content="" name="descriptison">
+  <meta content="Reitec Info, est une organisation non gouvernementale, sans but lucratif spécialisée dans la formation et le renforcement des capacités dans le secteur humanitaire" name="descriptison">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
