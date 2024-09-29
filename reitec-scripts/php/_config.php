@@ -5,10 +5,12 @@ session_start();
 class Config
 {
     public $dbName = '_db_reitec_info';
-    public $server = 'localhost';
-    public $userName = 'root';
-    public $password = '';
+    public $server = '109.235.70.154';
+    public $userName = 'remote_user';
+    public $password = 'pa$$word';
     private $statusData = 1;
+    private $port = 3306;
+
     function __construct()
     {
         $this->addFiveExtraColumn();
@@ -455,12 +457,15 @@ class Config
     public function onConn()
     {
         try {
-            $db = new PDO("mysql:host=$this->server;dbname=$this->dbName", "$this->userName", "$this->password");
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $db;
+            $dsn = "mysql:host=$this->server;port=$this->port;dbname=$this->dbName;charset=utf8mb4";
+            $pdo = new PDO($dsn, $this->userName, $this->password);
+
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            return $pdo;
         } catch (PDOException $e) {
+            die($e->getMessage());
             return null;
-            //    die($e->getMessage());
         }
     }
 }
