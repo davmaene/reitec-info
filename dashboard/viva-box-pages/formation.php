@@ -158,7 +158,7 @@ $fcl =  (onRetrieveFCLTR($g) !== 0) ? (onRetrieveFCLTR($g)) : 0;
                     } catch (error) {
                         toastr.error('Une erreur vient de se produire ! réessayer un peu plus tard');
                     }
-                }else{
+                } else {
                     toastr.error('Une erreur vient de se produire ! réessayer un peu plus tard');
                 }
             }
@@ -332,7 +332,8 @@ $fcl =  (onRetrieveFCLTR($g) !== 0) ? (onRetrieveFCLTR($g)) : 0;
                         'id': 'crskind',
                         'name': 'coursKind',
                         'class': 'form-control',
-                        'type': 'file'
+                        'type': 'file',
+                        'accept': '.doc, .pdf, .ppt'
                     })
                     .on('input', function(e) {
                         var countFiles = $(this)[0].files.length;

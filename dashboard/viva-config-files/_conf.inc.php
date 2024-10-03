@@ -162,7 +162,7 @@ class GeneConnexion
         if (is_array($idents) && ($this->onConn()) !== null) {
             $req = $this->onConn()->prepare("SELECT * FROM $tbl WHERE email = ? AND pwd = ? AND datastatus = ?");
             try {
-                $req->execute($idents);
+                $req->execute();
                 $req = $req->fetch();
                 if (!empty($req)) {
                     setcookie("tkn", md5('dav.me'), time() + 3600, '/');
