@@ -68,10 +68,10 @@
                         <span class="fa fa-user"></span>
                         <span>Connexion</span>
                     </a>
-                    <a href="?page=signup&_cbb=true" class="scrollto">
+                    <!-- <a href="?page=signup&_cbb=true" class="scrollto">
                         <span class="fa fa-file"></span>
                         <span>Démande de formation</span>
-                    </a>
+                    </a> -->
                 </div>
             <?php
                 }else{
@@ -81,10 +81,10 @@
                         <span class="fa fa-user"></span>
                         <span>Connexion</span>
                     </a>
-                    <a href="?page=signup&_cbb=true" class="scrollto">
+                    <!-- <a href="?page=signup&_cbb=true" class="scrollto">
                         <span class="fa fa-file"></span>
                         <span>Démande de formation</span>
-                    </a>
+                    </a> -->
                 </div>
             <?php
                 }

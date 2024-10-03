@@ -1,13 +1,13 @@
-<?php 
-    // var_dump(onGetCours($g));
-    $crs = (onRetriveDataCategorie($g,0) !== 0) ? onRetriveDataCategorie($g,0) : 0 ;
-    $crss = (onRetriveDataCategorieSub($g,0) !== 0) ? onRetriveDataCategorieSub($g,0) : 0 ;
-    $fcl =  (onRetrieveFCLTR($g) !== 0) ? (onRetrieveFCLTR($g)) : 0 ;
+<?php
+// var_dump(onGetCours($g));
+$crs = (onRetriveDataCategorie($g, 0) !== 0) ? onRetriveDataCategorie($g, 0) : 0;
+$crss = (onRetriveDataCategorieSub($g, 0) !== 0) ? onRetriveDataCategorieSub($g, 0) : 0;
+$fcl =  (onRetrieveFCLTR($g) !== 0) ? (onRetrieveFCLTR($g)) : 0;
 ?>
 <section class="mb-4">
     <div class="container my-5">
         <div class="w-100 d-flex justify-content-center">
-        <!-- la vie est belle  -->
+            <!-- la vie est belle  -->
             <div class="col-lg-8">
                 <div class="card card-outline card-primary">
                     <div class="card-header border-bottom-0">
@@ -23,13 +23,14 @@
                                 <label for="level">Catégorie <span class="text-danger">*</span></label>
                                 <select name="categ_cnnx" id="categ" class="form-control">
                                     <option value="">Selectionner une categorie</option>
-                                    <?php 
-                                        if($crs !== 0){
-                                            $categ = $crs;
-                                            foreach($categ as $cr){
+                                    <?php
+                                    if ($crs !== 0) {
+                                        $categ = $crs;
+                                        foreach ($categ as $cr) {
                                     ?>
-                                    <option value="<?php echo($cr->id); ?>"><?php echo($cr->categ) ?></option>
-                                    <?php }} ?>
+                                            <option value="<?php echo ($cr->id); ?>"><?php echo ($cr->categ) ?></option>
+                                    <?php }
+                                    } ?>
                                 </select>
                                 <b id="categ_cnnx" class="text-danger d-none"><span class="fa fa-warning"></span> selectioner la categorie du cours </b>
                             </div>
@@ -37,13 +38,14 @@
                                 <label for="level">Sous Catégorie <span class="text-danger">*</span></label>
                                 <select name="subcateg_cnnx" id="subcateg" class="form-control">
                                     <option value="">Selectionner une categorie</option>
-                                    <?php 
-                                        if($crss !== 0){
-                                            $scateg = $crss;
-                                            foreach($scateg as $crd){
+                                    <?php
+                                    if ($crss !== 0) {
+                                        $scateg = $crss;
+                                        foreach ($scateg as $crd) {
                                     ?>
-                                    <option value="<?php echo($crd->id); ?>"><?php echo($crd->categ) ?></option>
-                                    <?php }} ?>
+                                            <option value="<?php echo ($crd->id); ?>"><?php echo ($crd->categ) ?></option>
+                                    <?php }
+                                    } ?>
                                 </select>
                                 <b id="subcateg_cnnx" class="text-danger d-none"><span class="fa fa-warning"></span> selectioner la sous categorie du cours </b>
                             </div>
@@ -84,13 +86,14 @@
                                 <label for="fcl-cnnx">Facilitateur <span class="text-danger">*</span></label>
                                 <select name="fcl_cnnx" id="fcl-cnnx" class="form-control">
                                     <option value="">Selectionner une facilitateur</option>
-                                    <?php 
-                                        if($fcl !== 0){
-                                            // $categ = $crs;
-                                            foreach($fcl as $cr){
+                                    <?php
+                                    if ($fcl !== 0) {
+                                        // $categ = $crs;
+                                        foreach ($fcl as $cr) {
                                     ?>
-                                    <option value="<?php echo($cr->id); ?>"><?php echo(ucfirst($cr->nom).'&nbsp;'.ucfirst($cr->postnom)) ?></option>
-                                    <?php }} ?>
+                                            <option value="<?php echo ($cr->id); ?>"><?php echo (ucfirst($cr->nom) . '&nbsp;' . ucfirst($cr->postnom)) ?></option>
+                                    <?php }
+                                    } ?>
                                 </select>
                                 <b id="prix_cnnx" class="text-danger d-none"><span class="fa fa-warning"></span> Le montant entrer n'est pas valide ex : 300,43 sans symbole </b>
                             </div>
@@ -122,35 +125,47 @@
     </div>
 </section>
 <script>
-    const getArticles = function(indx){
+    const getArticles = function(indx) {
         var op = document.createElement('option');
-        $(op).attr({'value':'','id':'val-0'}).html('selectionner');
+        $(op).attr({
+            'value': '',
+            'id': 'val-0'
+        }).html('selectionner');
         const slct = $('[name=subcateg_cnnx]');
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'viva-box-scripts/php/reqxhr.php?abc=subcateg&item='+(indx), true);
-        xhr.onreadystatechange = function(){
-            if(xhr.readyState === 4 && xhr.status === 200){
-                if(xhr.responseText !== ''){
-                    let p = JSON.parse(xhr.responseText);
-                    $(slct).html(null);
-                    $(slct).append(op)
-                    p.forEach(object => {
-                        for (const key in object) {
-                            if (Object.hasOwnProperty.call(object, key)) {
-                                const element = object[key];
-                                // console.log(key);
-                                const opts = document.createElement('option');
-                                $(opts).attr({'value':key,'id':'val-' + key}).html(element);
-                                $(slct).append(opts);
+        xhr.open('GET', 'viva-box-scripts/php/reqxhr.php?abc=subcateg&item=' + (indx), true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                if (xhr.responseText !== '') {
+                    try {
+                        let p = JSON.parse(xhr.responseText);
+                        $(slct).html(null);
+                        $(slct).append(op)
+                        p.forEach(object => {
+                            for (const key in object) {
+                                if (Object.hasOwnProperty.call(object, key)) {
+                                    const element = object[key];
+                                    // console.log(key);
+                                    const opts = document.createElement('option');
+                                    $(opts).attr({
+                                        'value': key,
+                                        'id': 'val-' + key
+                                    }).html(element);
+                                    $(slct).append(opts);
+                                }
                             }
-                        }
-                    });
+                        });
+                    } catch (error) {
+                        toastr.error('Une erreur vient de se produire ! réessayer un peu plus tard');
+                    }
+                }else{
+                    toastr.error('Une erreur vient de se produire ! réessayer un peu plus tard');
                 }
             }
         }
         xhr.send(null);
     }
-    let isFile = function(e){
+    let isFile = function(e) {
         //Get count of selected files
         var countFiles = $(e)[0].files.length;
         var imgPath = $(e)[0].value;
@@ -166,32 +181,32 @@
             // alert("Pls select only images");
         }
     }
-    let isUrl = function(e){ 
-        if(/(https|http|ftp|steam):\/\//.test(e)) return true;
+    let isUrl = function(e) {
+        if (/(https|http|ftp|steam):\/\//.test(e)) return true;
         else return false;
     }
-    const canAdd = function(){
+    const canAdd = function() {
         var Y = false;
-        let _tit = function(){
+        let _tit = function() {
             var vl = false;
-            if($('[name=titre_cnnx]').val().length >=3){
+            if ($('[name=titre_cnnx]').val().length >= 3) {
                 $('[id=titre_cnnx]').addClass('d-none');
                 vl = true;
                 $('[name=titre_cnnx]').removeClass('border-danger');
-            }else{
+            } else {
                 $('[id=titre_cnnx]').removeClass('d-none');
                 $('[name=titre_cnnx]').addClass('border-danger');
                 vl = false;
             }
             return vl;
         }
-        let _delais = function(){
+        let _delais = function() {
             var vl = false;
-            if(!isNaN($('[name=delais_cnnx]').val()) && $('[name=delais_cnnx]').val().length > 0){
+            if (!isNaN($('[name=delais_cnnx]').val()) && $('[name=delais_cnnx]').val().length > 0) {
                 $('[id=delais_cnnx]').addClass('d-none');
                 vl = true;
                 $('[name=delais_cnnx]').removeClass('border-danger');
-            }else{
+            } else {
                 $('[id=delais_cnnx]').removeClass('d-none');
                 $('[name=delais_cnnx]').addClass('border-danger');
                 vl = false;
@@ -199,13 +214,13 @@
             return vl;
         }
         // ------------------------
-        let _prx = function(){
+        let _prx = function() {
             var vl = false;
-            if(!isNaN($('[name=prix_cnnx]').val()) && $('[name=prix_cnnx]').val().length > 0){
+            if (!isNaN($('[name=prix_cnnx]').val()) && $('[name=prix_cnnx]').val().length > 0) {
                 $('[id=prix_cnnx]').addClass('d-none');
                 vl = true;
                 $('[name=prix_cnnx]').removeClass('border-danger');
-            }else{
+            } else {
                 $('[id=prix_cnnx]').removeClass('d-none');
                 $('[name=prix_cnnx]').addClass('border-danger');
                 vl = false;
@@ -213,13 +228,13 @@
             return vl;
         }
         // ------------------------
-        let _categ = function(){
+        let _categ = function() {
             var vl = false;
-            if($('[name=categ_cnnx]').val() !== ''){
+            if ($('[name=categ_cnnx]').val() !== '') {
                 $('[id=categ_cnnx]').addClass('d-none');
                 vl = true;
                 $('[name=categ_cnnx]').removeClass('border-danger');
-            }else{
+            } else {
                 $('[id=categ_cnnx]').removeClass('d-none');
                 $('[name=categ_cnnx]').addClass('border-danger');
                 vl = false;
@@ -227,13 +242,13 @@
             return vl;
         }
         // -------------------------
-        let _desc = function(){
+        let _desc = function() {
             var vl = false;
-            if($('[name=desc_cnnx]').val() !== ''){
+            if ($('[name=desc_cnnx]').val() !== '') {
                 $('[id=desc_cnnx]').addClass('d-none');
                 vl = true;
                 $('[name=desc_cnnx]').removeClass('border-danger');
-            }else{
+            } else {
                 $('[id=desc_cnnx]').removeClass('d-none');
                 $('[name=desc_cnnx]').addClass('border-danger');
                 vl = false;
@@ -241,13 +256,13 @@
             return vl;
         }
         // -------------------------
-        let _subcateg = function(){
+        let _subcateg = function() {
             var vl = false;
-            if($('[name=subcateg_cnnx]').val() !== ''){
+            if ($('[name=subcateg_cnnx]').val() !== '') {
                 $('[id=subcateg_cnnx]').addClass('d-none');
                 vl = true;
                 $('[name=subcateg_cnnx]').removeClass('border-danger');
-            }else{
+            } else {
                 $('[id=subcateg_cnnx]').removeClass('d-none');
                 $('[name=subcateg_cnnx]').addClass('border-danger');
                 vl = false;
@@ -255,19 +270,19 @@
             return vl;
         }
         // -------------------------
-        let _kind = function(){
+        let _kind = function() {
             var vl = false;
-            if($('[name=kind_cnnx]').val() !== ''){
+            if ($('[name=kind_cnnx]').val() !== '') {
                 $('[name=kind_cnnx]').removeClass('border-danger');
                 $('[id=kind_cnnx]').addClass('d-none');
                 var knd = $('[name=kind_cnnx]').val();
                 switch (knd) {
                     case 'aspdf':
-                        if(isFile($('[id=crskind]'))){
+                        if (isFile($('[id=crskind]'))) {
                             $('[id=kind_cnnx]').addClass('d-none');
                             vl = true;
                             $('[id=crskind]').removeClass('border-danger');
-                        }else{
+                        } else {
                             $('[id=kind_cnnx]').addClass('d-none');
                             vl = false;
                             $('[id=crskind]').removeClass('border-danger');
@@ -276,11 +291,11 @@
                     case 'astext':
                         return true;
                     case 'asvideourl':
-                        if(isUrl($('[id=crskind]').val())){
+                        if (isUrl($('[id=crskind]').val())) {
                             $('[id=kind_cnnx_]').addClass('d-none');
                             vl = true;
                             $('[id=crskind]').removeClass('border-danger');
-                        }else{
+                        } else {
                             $('[id=kind_cnnx_]').removeClass('d-none');
                             $('[id=kind_cnnx_]').html('Entrer un url correct svp');
                             vl = false;
@@ -290,7 +305,7 @@
                     default:
                         break;
                 }
-            }else{
+            } else {
                 $('[id=kind_cnnx]').removeClass('d-none');
                 $('[name=kind_cnnx]').addClass('border-danger');
                 vl = false;
@@ -300,12 +315,12 @@
         // -------------------------&& _tit() && _delais() && _prx() && _categ() && _subcateg()
         return _kind() && _tit() && _prx() && _categ() && _subcateg();
     }
-    $('[name=categ_cnnx]').on('input', function(e){
+    $('[name=categ_cnnx]').on('input', function(e) {
         const idx = parseInt($(this).val());
         e.preventDefault();
         getArticles(idx);
     })
-    $('[name=kind_cnnx]').on('input', function(e){
+    $('[name=kind_cnnx]').on('input', function(e) {
         const vl = $(this).val();
         const _dv = $('[dav-attr=append]');
         const elem = document.createElement('input');
@@ -313,54 +328,75 @@
         $('[id=kind_cnnx_]').addClass('d-none');
         switch (vl) {
             case 'aspdf':
-                $(elem).attr({'id':'crskind','name':'coursKind','class':'form-control','type':'file'})
-                .on('input',function(e){
-                    var countFiles = $(this)[0].files.length;
-                    var imgPath = $(this)[0].value;
-                    var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
-                    var image_holder = $("#image-holder");
-                    image_holder.empty();
-                    // extn == "doc" || extn == "ppt" || extn == "pdf" || extn == "docx" || extn == "xlsx" || extn == "xls"
-                    if (extn === "pdf") {
-                        $('[id=kind_cnnx_]').addClass('d-none');
-                        return true;
-                    } else {
-                        $('[id=kind_cnnx_]').removeClass('d-none');
-                    }
-                });
+                $(elem).attr({
+                        'id': 'crskind',
+                        'name': 'coursKind',
+                        'class': 'form-control',
+                        'type': 'file'
+                    })
+                    .on('input', function(e) {
+                        var countFiles = $(this)[0].files.length;
+                        var imgPath = $(this)[0].value;
+                        var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+                        var image_holder = $("#image-holder");
+                        image_holder.empty();
+                        // extn == "doc" || extn == "ppt" || extn == "pdf" || extn == "docx" || extn == "xlsx" || extn == "xls"
+                        if (extn === "pdf") {
+                            $('[id=kind_cnnx_]').addClass('d-none');
+                            return true;
+                        } else {
+                            $('[id=kind_cnnx_]').removeClass('d-none');
+                        }
+                    });
                 $(_dv).append(elem);
                 break;
             case 'astext':
-                $(elem).attr({'id':'crskind','readonly':'readonly','name':'coursKind','class':'form-control','type':'text','value':'lors de la soumission vous serez redireger'})
+                $(elem).attr({
+                    'id': 'crskind',
+                    'readonly': 'readonly',
+                    'name': 'coursKind',
+                    'class': 'form-control',
+                    'type': 'text',
+                    'value': 'lors de la soumission vous serez redireger'
+                })
                 $(_dv).append(elem);
                 break;
             case 'asvideourl':
-                $(elem).attr({'id':'crskind','name':'coursKind','class':'form-control','type':'url','placeholder':'http://'})
-                .on('input',function(e){
-                    isUrl($(this).val())
-                });
+                $(elem).attr({
+                        'id': 'crskind',
+                        'name': 'coursKind',
+                        'class': 'form-control',
+                        'type': 'url',
+                        'placeholder': 'http://'
+                    })
+                    .on('input', function(e) {
+                        isUrl($(this).val())
+                    });
                 $(_dv).append(elem);
                 break;
             default:
                 break;
         }
     })
-    $('#form-addCours').on('submit', function(e){
+    $('#form-addCours').on('submit', function(e) {
         e.preventDefault();
-        if(canAdd()){
+        if (canAdd()) {
             const sp = document.createElement('span');
-            $(sp).attr({'id':'span-loader','class':'spinner-grow spinner-grow-sm'})
-            if($('#crskind').attr('type') !== 'text'){
+            $(sp).attr({
+                'id': 'span-loader',
+                'class': 'spinner-grow spinner-grow-sm'
+            })
+            if ($('#crskind').attr('type') !== 'text') {
                 const frm = new FormData(document.getElementById('form-addCours'));
                 const xhr = new XMLHttpRequest();
-                $('.btn-create').attr('disabled','disabled').append(sp)
-                xhr.open('POST', `viva-box-scripts/php/reqxhr.php?cba=add`,true);
-                xhr.onreadystatechange = function(){
-                    if(xhr.readyState === 4 && xhr.status === 200){
+                $('.btn-create').attr('disabled', 'disabled').append(sp)
+                xhr.open('POST', `viva-box-scripts/php/reqxhr.php?cba=add`, true);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
                         const rs = parseInt(xhr.responseText);
                         switch (rs) {
                             case 200:
-                                $('[ouput-text=ouput]').attr('class','d-none')
+                                $('[ouput-text=ouput]').attr('class', 'd-none')
                                 toastr.success('Le cours a été ajouté avec succès');
                                 $('.btn-create').removeAttr('disabled');
                                 $(sp).remove();
@@ -372,7 +408,7 @@
                                 $(sp).remove();
                                 $('#span-loader').remove();
                                 $('[ouput-text=ouput]')
-                                    .attr('class','d-block')
+                                    .attr('class', 'd-block')
                                     .html('<span class="fa fa-warning mr-2"></span><span>Ce cours existe déjà</span>');
                                 $('[name=email_cnnx]').addClass('border-danger');
                                 break;
@@ -392,7 +428,7 @@
                                 $(sp).remove();
                                 $('#span-loader').remove();
                                 $('[ouput-text=ouput]')
-                                    .attr('class','d-block')
+                                    .attr('class', 'd-block')
                                     .html('<span class="fa fa-warning mr-2"></span><span>Impossible de poursuivre l\'opération</span>');
                                 break;
                         }
@@ -400,7 +436,7 @@
                 }
                 xhr.send(frm);
                 // console.log(JSON.stringify($('#form-addCours').serializeArray()))
-            }else{
+            } else {
                 const data = JSON.stringify($('#form-addCours').serializeArray());
                 const d = btoa('david_maene_est_le_meilleur_de_tous_les_geek');
                 const vm = btoa(new Date().getTime())
