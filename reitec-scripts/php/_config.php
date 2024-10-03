@@ -4,15 +4,15 @@ session_start();
 // -----------------------------------------------------
 class Config
 {
-    // public $dbName = '_db_reitec_info';
-    // public $server = '109.235.70.154';
-    // public $userName = 'remote_user';
-    // public $password = 'pa$$word';
-    // ================================
     public $dbName = '_db_reitec_info';
-    public $server = 'localhost';
-    public $userName = 'root';
-    public $password = '';
+    public $server = '109.235.70.154';
+    public $userName = 'remote_user';
+    public $password = 'pa$$word';
+    // ================================
+    // public $dbName = '_db_reitec_info';
+    // public $server = 'localhost';
+    // public $userName = 'root';
+    // public $password = '';
     // ================================
     private $statusData = 1;
     private $port = 3306;
