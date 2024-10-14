@@ -120,7 +120,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="?page=signup&_cbb=true" class="active-- border rounded">
+                        <a href="?page=formations&_cbb=true" class="active-- border rounded">
                             <b>Démande de formation</b>
                         </a>
                     </li>
@@ -150,7 +150,7 @@
                         }else{
                     ?>
                     <li class="d-sm-only"><a href="?page=signin">Connexion</a></li>
-                    <li class="d-sm-only bg-prmy"><a href="?page=signup" class="text-white"><b>Démande de formation</b></a></li>
+                    <li class="d-sm-only bg-prmy"><a href="?page=formations" class="text-white"><b>Démande de formation</b></a></li>
                      <?php  } ?>
                 </ul>
             </nav>

@@ -6,6 +6,7 @@ include_once('../../reitec-model/model.student.php');
 include_once('_config.php');
 // --------------------------------------------------------
 $cfg = new Config();
+
 function _onCreatingSession()
 {
     $_SESSION['reitec-std-session'] = $_POST['email_cnnx'];
@@ -337,10 +338,25 @@ if (isset($_POST['email_cnnx'])) {
             $ident,
             $tbl
         );
-        if($add === 200){
-            
-        }else{
-            echo(500);
+        if ($add === 200) {
+            $cnnx = $cfg->onConnexion([trim($_POST['email_cnnx']), md5(ucwords($_POST['pwd_cnnx']))], $clause, $tbl);
+            $cnnx = (int) $cnnx;
+            switch ($cnnx) {
+                case 200:
+                    echo (200);
+                    break;
+                case 403:
+                    echo (403);
+                    break;
+                case 500:
+                    echo (500);
+                    break;
+                default:
+                    echo (505);
+                    break;
+            }
+        } else {
+            echo (500);
         }
     }
 }
@@ -433,7 +449,7 @@ if (isset($_POST['email'])) {
                 ';
             $im['from'] = strtolower($_POST['email']);
             $im['subject'] = '<< -- DEMANDE DE FORMATION -- >>';
-            $im['email'] = 'davidmened@gmail.com' ?? 'formation@reitecinfo.net';
+            $im['email'] = 'davidmened@gmail.com' ?? 'info@reitecinfo.org';
             $cfg->sendMail($im);
             echo (200);
             break;

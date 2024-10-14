@@ -1,15 +1,15 @@
 <!-- ======= Hero Section ======= -->
 <style>
     a.active- {
-    border-bottom: 2px solid #577692;
-    /* background-color: #577692; */
+        border-bottom: 2px solid #577692;
+        /* background-color: #577692; */
     }
 </style>
 <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="container" data-aos="fade-in">
         <h1>Réseau International des Consultants Humanitaires.</h1>
         <h2 class="">
-        <strong><strong>Reitec Info</strong></strong> est Une Organisation non Gouvernementale, sans but lucratif spécialisée dans la Formation et renforcement de capacité dans le secteur humanitaire
+            <strong><strong>Reitec Info</strong></strong> est Une Organisation non Gouvernementale, sans but lucratif spécialisée dans la Formation et renforcement de capacité dans le secteur humanitaire
         </h2>
         <!-- <div class="d-flex align-items-center d-none" hidden>
             <i class="bx bxs-right-arrow-alt get-started-icon"></i>
@@ -30,7 +30,7 @@
                         <h3>Pour quoi reitec Info ?</h3>
                         <p>
                             Nous sommes Une Organisation non Gouvernementale, sans but lucratif spécialisée dans la Formation et renforcement de capacité dans le secteur humanitaire,
-                            crée en 2006 par des Experts Consultants de différents domaines en vue d’apporter 
+                            crée en 2006 par des Experts Consultants de différents domaines en vue d’apporter
                         </p>
                         <div class="text-center">
                             <a href="?page=about" class="more-btn">En savoir plus <i class="bx bx-chevron-right"></i></a>
@@ -51,7 +51,7 @@
                                 <div class="icon-box mt-4 mt-xl-0">
                                     <i class="bx bx-cube-alt"></i>
                                     <h4>Informatique et bureautique</h4>
-                                    <p>Nous oeuvrons dans le renforcement des capacites par des formation, des seminaires, 
+                                    <p>Nous oeuvrons dans le renforcement des capacites par des formation, des seminaires,
                                         des atéliers et des conférences dans plusieurs domaine de la vie.</p>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                                 <div class="icon-box mt-4 mt-xl-0">
                                     <i class="bx bx-images"></i>
                                     <h4>Atelier</h4>
-                                    <p>Nos paquet des FORMATIONS touchent les cadres, les travailleurs et proffessionnel 
+                                    <p>Nos paquet des FORMATIONS touchent les cadres, les travailleurs et proffessionnel
                                         de metier a tout les niveau: Entreprise, Institution publique,
                                     </p>
                                 </div>
@@ -72,17 +72,17 @@
         </div>
     </section>
     <!-- End Why Us Section -->
-        <!-- ======= Portfolio Section ======= -->
+    <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="Portfolio">
         <div class="container">
 
             <div class="section-title">
                 <h2 data-aos="fade-up">Qui sommes nous ?</h2>
                 <p data-aos="fade-up">
-                Réseau International des Consultants Humanitaires est Une Organisation non Gouvernementale, 
-                sans but lucratif spécialisée dans la Formation et renforcement de capacité dans le secteur humanitaire, 
-                crée en 2006 par des Experts Consultants de différents domaines en vue d’apporter un soutien aux actions humanitaires,  
-                par un renforcement de capacité des staffs des Organisations intervenant dans les zones à conflit.  
+                    Réseau International des Consultants Humanitaires est Une Organisation non Gouvernementale,
+                    sans but lucratif spécialisée dans la Formation et renforcement de capacité dans le secteur humanitaire,
+                    crée en 2006 par des Experts Consultants de différents domaines en vue d’apporter un soutien aux actions humanitaires,
+                    par un renforcement de capacité des staffs des Organisations intervenant dans les zones à conflit.
                 </p>
             </div>
         </div>
@@ -101,10 +101,10 @@
                     <h4>Reitec | Info</h4>
                     <p>
                         <!-- <i class="bx bxs-quote-alt-left quote-icon-left"></i>  -->
-                            Réseau International des Consultants Humanitaires est Une Organisation non Gouvernementale, 
-                            sans but lucratif spécialisée dans la Formation et renforcement de capacité dans le secteur humanitaire,
-                            crée en 2006 par des Experts Consultants de différents domaines en vue d’apporter un soutien aux actions humanitaires, 
-                            par un renforcement de capacité des staffs des Organisations intervenant dans les zones à conflit. 
+                        Réseau International des Consultants Humanitaires est Une Organisation non Gouvernementale,
+                        sans but lucratif spécialisée dans la Formation et renforcement de capacité dans le secteur humanitaire,
+                        crée en 2006 par des Experts Consultants de différents domaines en vue d’apporter un soutien aux actions humanitaires,
+                        par un renforcement de capacité des staffs des Organisations intervenant dans les zones à conflit.
                         <!-- <i class="bx bxs-quote-alt-right quote-icon-right"></i> -->
                     </p>
                 </div>
@@ -115,9 +115,9 @@
                     <h4>Reitec | Info</h4>
                     <p>
                         <!-- <i class="bx bxs-quote-alt-left quote-icon-left"></i>  -->
-                            <b>1. Concevoir</b> et  mettre en place des projets de développement par des formations et renforcement de capacité professionnelle. <br>
-                            <b>2. Favoriser</b> une interaction efficace entre les ONG,  les Asbl, les institutions publiques et privées afin d’apporter des réussites aux actions menées par les acteurs auprès des populations en nécessité. <br>
-                            <b>3. Militer </b> intelligemment  sur  le  changement    de  mentalité  et  de  comportement  des  populations. 
+                        <b>1. Concevoir</b> et mettre en place des projets de développement par des formations et renforcement de capacité professionnelle. <br>
+                        <b>2. Favoriser</b> une interaction efficace entre les ONG, les Asbl, les institutions publiques et privées afin d’apporter des réussites aux actions menées par les acteurs auprès des populations en nécessité. <br>
+                        <b>3. Militer </b> intelligemment sur le changement de mentalité et de comportement des populations.
                         <!-- <i class="bx bxs-quote-alt-right quote-icon-right"></i> -->
                     </p>
                 </div>
@@ -128,12 +128,12 @@
                     <h4>Reitec | Info</h4>
                     <p>
                         <!-- <i class="bx bxs-quote-alt-left quote-icon-left"></i> -->
-                            <b>1. Education</b><br>
-                            -	Formation et renforcement de capacité. <br>
-                            -	Séminaires et Ateliers. <br>
-                            -	 Informatique <br>
-                            <b>2.	Protection</b><br>
-                            -	Réinsertion sociale de l’enfant  et la femme défavorisés ou affectés par un conflit.
+                        <b>1. Education</b><br>
+                        - Formation et renforcement de capacité. <br>
+                        - Séminaires et Ateliers. <br>
+                        - Informatique <br>
+                        <b>2. Protection</b><br>
+                        - Réinsertion sociale de l’enfant et la femme défavorisés ou affectés par un conflit.
                         <!-- <i class="bx bxs-quote-alt-right quote-icon-right"></i> -->
                     </p>
                 </div>
@@ -180,10 +180,10 @@
                         <div class="card-body">
                             <h5 class="card-title"><a href="">Qui sommes nous</a></h5>
                             <p class="card-text">
-                                Réseau International des Consultants Humanitaires est Une Organisation non Gouvernementale, 
+                                Réseau International des Consultants Humanitaires est Une Organisation non Gouvernementale,
                                 sans but lucratif spécialisée dans la Formation et renforcement de capacité dans le secteur humanitaire,
-                                crée en 2006 par des Experts Consultants de différents domaines en vue d’apporter un soutien aux actions humanitaires, 
-                                par un renforcement de capacité des staffs des Organisations intervenant dans les zones à conflit.  
+                                crée en 2006 par des Experts Consultants de différents domaines en vue d’apporter un soutien aux actions humanitaires,
+                                par un renforcement de capacité des staffs des Organisations intervenant dans les zones à conflit.
                             </p>
                             <div class="read-more"><a href="?page=about"><i class="icofont-arrow-right"></i> En savoir plus</a></div>
                         </div>
@@ -194,9 +194,9 @@
                         <div class="card-body">
                             <h5 class="card-title"><a href="">Vision de l’organisation </a></h5>
                             <p class="card-text">
-                                <b>1. Concevoir</b> et  mettre en place des projets de développement par des formations et renforcement de capacité professionnelle. <br>
-                                <b>2. Favoriser</b> une interaction efficace entre les ONG,  les Asbl, les institutions publiques et privées afin d’apporter des réussites aux actions menées par les acteurs auprès des populations en nécessité. <br>
-                                <b>3. Militer </b> intelligemment  sur  le  changement    de  mentalité  et  de  comportement  des  populations. 
+                                <b>1. Concevoir</b> et mettre en place des projets de développement par des formations et renforcement de capacité professionnelle. <br>
+                                <b>2. Favoriser</b> une interaction efficace entre les ONG, les Asbl, les institutions publiques et privées afin d’apporter des réussites aux actions menées par les acteurs auprès des populations en nécessité. <br>
+                                <b>3. Militer </b> intelligemment sur le changement de mentalité et de comportement des populations.
                             </p>
                             <div class="read-more"><a href="?page=about"><i class="icofont-arrow-right"></i> En savoir plus</a></div>
                         </div>
@@ -208,11 +208,11 @@
                             <h5 class="card-title"><a href="">Domaines d’intervention</a></h5>
                             <p class="card-text">
                                 <b>1. Education</b><br>
-                                -	Formation et renforcement de capacité. <br>
-                                -	Séminaires et Ateliers. <br>
-                                -	 Informatique <br>
-                                <b>2.	Protection</b><br>
-                                -	Réinsertion sociale de l’enfant  et la femme défavorisés ou affectés par un conflit.
+                                - Formation et renforcement de capacité. <br>
+                                - Séminaires et Ateliers. <br>
+                                - Informatique <br>
+                                <b>2. Protection</b><br>
+                                - Réinsertion sociale de l’enfant et la femme défavorisés ou affectés par un conflit.
                             </p>
                             <div class="read-more"><a href="?page=about"><i class="icofont-arrow-right"></i> En savoir plus</a></div>
                         </div>
@@ -223,7 +223,7 @@
                     <div class="card" style="background-image: url(reitec-images/img/img4.jpg);">
                         <div class="card-body">
                             <h5 class="card-title"><a href="">Zones d’intervention</a></h5>
-                            <p class="card-text">   
+                            <p class="card-text">
                                 Provinces du Nord et Sud-Kivu, Tanganyika et Ituri en République Démocratique du Congo.
                             </p>
                             <div class="read-more"><a href="?page=about"><i class="icofont-arrow-right"></i> En savoir plus</a></div>
@@ -246,7 +246,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><a href="">Nos ambitions</a></h5>
                             <p class="card-text">
-                            Valoriser l’action humanitaire par en renforçant les efforts fournis par les partenaires de manière à concrétiser l’impact des résultats des actions humanitaires.
+                                Valoriser l’action humanitaire par en renforçant les efforts fournis par les partenaires de manière à concrétiser l’impact des résultats des actions humanitaires.
                             </p>
                             <div class="read-more"><a href="?page=about"><i class="icofont-arrow-right"></i> En savoir plus</a></div>
                         </div>
@@ -448,63 +448,63 @@
         <div class="container">
 
             <div class="section-title">
-                <h2 data-aos="fade-up-">Formation <small class="badge badge-danger mt-0" style="font-size: 13px !important">Nouvelles</small></h2>
+                <h2 data-aos="fade-up-">Formations <small class="badge badge-danger mt-0 d-none" style="font-size: 13px !important">Nouvelles</small></h2>
                 <p data-aos="fade-up-">
-                    Devenez qui vous voulez être avec Reitec Info. Choisissez votre carrière, suivez une formation constituée des nouvelles connaissances  professionnelles en équipe ou en séances individuelles avec des formateurs reconnus par leurs expériences. 
-                    Obtenez un Brevet d’aptitude professionnelle reconnu dans le secteur humanitaire. 
+                    Devenez qui vous voulez être avec Reitec Info. Choisissez votre carrière, suivez une formation constituée des nouvelles connaissances professionnelles en équipe ou en séances individuelles avec des formateurs reconnus par leurs expériences.
+                    Obtenez un Brevet d’aptitude professionnelle reconnu dans le secteur humanitaire.
                     Enrichissez votre CV avec les programmes en alternance proposés par Reitec Info afin de gagner un salaire tout en suivant votre formation.
                 </p>
             </div>
 
             <div class="row">
-            <?php 
-                $coursS = getCours($conf,6);
-                if($coursS !== 0){
-                        // $coursS = array_merge($coursS['distCours'], $coursS['notDistCours']);
-                        shuffle($coursS);
+                <?php
+                $coursS = getCours($conf, 6);
+                if ($coursS !== 0) {
+                    // $coursS = array_merge($coursS['distCours'], $coursS['notDistCours']);
+                    shuffle($coursS);
                     // var_dump($coursS);
                     $mkr = ucwords(md5('reitec-info'));
                     foreach ($coursS as $key => $cours) {
-                    $desc = (strlen($cours->description) < 100) ? $cours->description : substr($cours->description,0,100).' ...';
+                        $desc = (strlen($cours->description) < 100) ? $cours->description : substr($cours->description, 0, 100) . ' ...';
                 ?>
-                    <div class="col-lg-3 col-md-6" data-aos="fade-up-">
-                        <div class="box featured">
-                            <h3><?php echo($cours->titre); ?></h3>
-                            <h4><sup>$</sup><?php echo($cours->prix) ?><span> / formation</span></h4>
-                            <h5 class="mb-0"><?php echo($cours->date_s); ?></h5>
-                            <p class="mb-0">&nbsp;<b>au</b>&nbsp;</p>
-                            <h5><?php echo($cours->date_e); ?></h5>
-                            <p>
-                                <?php echo($desc); ?>
-                            </p>
-                            <!-- <ul>
+                        <div class="col-lg-3 col-md-6" data-aos="fade-up-">
+                            <div class="box featured">
+                                <h3><?php echo ucfirst($cours->titre); ?></h3>
+                                <h4><sup>$</sup><?php echo ($cours->prix) ?><span> / formation</span></h4>
+                                <h5 class="mb-0"><?php echo ($cours->date_s); ?></h5>
+                                <p class="mb-0">&nbsp;<b>au</b>&nbsp;</p>
+                                <h5><?php echo ($cours->date_e); ?></h5>
+                                <p>
+                                    <?php echo ($desc); ?>
+                                </p>
+                                <!-- <ul>
                                 <li>Aida dere</li>
                                 <li>Nec feugiat nisl</li>
                                 <li>Nulla at volutpat dola</li>
                                 <li class="na">Pharetra massa</li>
                                 <li class="na">Massa ultricies mi</li>
                             </ul> -->
-                            <div class="btn-wrap">
-                                <a href="?page=detailcours&_sv=<?php echo(sha1('reitec-null')) ?>&_cbname=<?php echo(base64_encode($cours->titre)); ?>&_cb=<?php echo($cours->id) ?>&_id=<?php echo($cours->id) ?>" class="btn-buy">Démander cette formation</a>
+                                <div class="btn-wrap">
+                                    <a href="?page=detailcours&_sv=<?php echo (sha1('reitec-null')) ?>&_cbname=<?php echo (base64_encode($cours->titre)); ?>&_cb=<?php echo ($cours->id) ?>&_id=<?php echo ($cours->id) ?>" class="btn-buy bg-danger">Démander cette formation</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!--  -->
-                <?php
-                        }
-                    }else{
-                ?>
+                        <!--  -->
+                    <?php
+                    }
+                } else {
+                    ?>
                     <div class="col-lg-12 text-center">
                         <span class="text-secondary">
                             <b><i class="fa fa-circle-o mr-2 text-prmy"></i> Aucune formation disponible pour le moment</b>
                         </span>
-                    </li>
-                <?php
-                    }
-                ?>
-            </div>
+                        </li>
+                    <?php
+                }
+                    ?>
+                    </div>
 
-        </div>
+            </div>
     </section>
     <!-- End Pricing Section -->
 </main>
