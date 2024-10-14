@@ -1,15 +1,15 @@
 <?php
 class GeneConnexion
 {
-    // private $_dbName = "_db_reitec_info"; //name of database reite1501280
-    // private $_userName = "root"; // user name to acces db zaqxswcde1234567890
-    // private $_passWord = ''; // user password to access db
-    // private $_host = "localhost";
-    // =============================
     private $_dbName = "_db_reitec_info"; //name of database reite1501280
-    private $_userName = "remote_user"; // user name to acces db zaqxswcde1234567890
-    private $_passWord = 'pa$$word'; // user password to access db
-    private $_host = "109.235.70.154";
+    private $_userName = "root"; // user name to acces db zaqxswcde1234567890
+    private $_passWord = ''; // user password to access db
+    private $_host = "localhost";
+    // =============================
+    // private $_dbName = "_db_reitec_info"; //name of database reite1501280
+    // private $_userName = "remote_user"; // user name to acces db zaqxswcde1234567890
+    // private $_passWord = 'pa$$word'; // user password to access db
+    // private $_host = "109.235.70.154";
 
     private $datastatus = 'datastatus';
     public function __construct() {}

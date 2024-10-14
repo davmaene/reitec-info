@@ -5,15 +5,15 @@ session_start();
 class Config
 {
     // ================================
-    // public $dbName = '_db_reitec_info';
-    // public $server = 'localhost';
-    // public $userName = 'root';
-    // public $password = '';
-    // ================================
     public $dbName = '_db_reitec_info';
-    public $server = '109.235.70.154';
-    public $userName = 'remote_user';
-    public $password = 'pa$$word';
+    public $server = 'localhost';
+    public $userName = 'root';
+    public $password = '';
+    // ================================
+    // public $dbName = '_db_reitec_info';
+    // public $server = '109.235.70.154';
+    // public $userName = 'remote_user';
+    // public $password = 'pa$$word';
     // ================================
     private $statusData = 1;
     private $port = 3306;
@@ -360,6 +360,7 @@ class Config
         try {
             $req->execute();
             $req = $req->fetchAll();
+            var_dump($req);
             $lstIdx = (int) $req[0][0];
             return ($lstIdx);
         } catch (PDOException $e) {
@@ -374,11 +375,12 @@ class Config
         try {
             $req->execute();
             $req = $req->fetchAll();
-            if (!empty($req)) return $req;
+            // var_dump($req);
+            if (!empty($req) || count($req) > 0) return $req;
             else return 0;
         } catch (PDOException $e) {
             //throw $th;
-            var_dump($e->getMessage());
+            // var_dump($e->getMessage());
             return 'undefined';
         }
     }
@@ -397,41 +399,43 @@ class Config
     }
     public function onAdd($tbValues, $clause, $accessLevel, $indentified, $table)
     {
-        if (is_array($tbValues) && (count($tbValues) > 0)) {
-            $cls = $this->retrievesColumn($table, false);
-            $tabvalues = [];
-            if (strlen($cls) > 0) {
-                $cls = substr($cls, strpos($cls, ',', 0) + 1);
-                if ($cls) {
-                    array_push($tbValues, $indentified);
-                    array_push($tbValues, 0);
-                    array_push($tbValues, 0);
-                    array_push($tbValues, Date('d/m/Y, H:i:s'));
-                    array_push($tbValues, 1);
-                    foreach ($tbValues as $key => $value) {
-                        $val = ("'" . $value . "'");
-                        array_push($tabvalues, $val);
-                    }
-                    try {
-                        $vls = implode(',', $tabvalues);
-                        $req = $this->onConn()->prepare("INSERT INTO $table ($cls) VALUES ($vls)");
-                        $req->execute();
-                    } catch (PDOException $e) {
-                        // $exc = new LogNotification([Date('d/m/Y, H:i:s')],["CRUD ERROR ON ADDING : $table"],['Failed'],[$e->getMessage()]);
-                        // $this->errorWritter($exc,2);
-                        // var_dump($cls);
-                        // var_dump($vls);
-                        // var_dump($e->getMessage());
-                        return 503; // violation constraint
-                    }
-                    return 200;
-                }
-                return 500;
-            }
-            return 500;
+        if (!is_array($tbValues) || count($tbValues) === 0) {
+            return 500; // Erreur: pas de données à insérer
         }
-        return 500;
+
+        // Récupérer les colonnes de la table
+        $cls = $this->retrievesColumn($table, false);
+        if (empty($cls)) {
+            return 500; // Erreur: pas de colonnes récupérées
+        }
+
+        // Supprimer la première colonne de la liste (supposition)
+        $cls = substr($cls, strpos($cls, ',') + 1);
+        // Ajouter les valeurs supplémentaires
+        $tbValues[] = $indentified;
+        $tbValues[] = 0;
+        $tbValues[] = 0;
+        $tbValues[] = date('d/m/Y, H:i:s');
+        $tbValues[] = 1;
+        // Préparer les valeurs avec des quotes pour l'insertion SQL
+        $tabvalues = array_map(fn($value) => "'$value'", $tbValues);
+        // var_dump($tbValues);
+        $vls = implode(',', $tabvalues);
+
+        try {
+            // Préparer et exécuter la requête
+            $req = $this->onConn()->prepare("INSERT INTO $table ($cls) VALUES ($vls)");
+            $req->execute();
+            return 200; // Succès
+        } catch (PDOException $e) {
+            // Afficher les informations pour le débogage
+            // echo "Erreur lors de l'insertion : " . $e->getMessage();
+            // echo "Valeurs : " . implode(', ', $tbValues);
+            // echo "Colonnes : " . $cls;
+            return 503; // Erreur lors de l'exécution de la requête
+        }
     }
+
     public function onConnexion($idents, $clause, $tbl)
     {
         if (is_array($idents) && ($this->onConn()) !== null) {
