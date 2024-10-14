@@ -460,36 +460,24 @@
                 <?php
                 $coursS = getCours($conf, 6);
                 if ($coursS !== 0) {
-                    // $coursS = array_merge($coursS['distCours'], $coursS['notDistCours']);
                     shuffle($coursS);
-                    // var_dump($coursS);
                     $mkr = ucwords(md5('reitec-info'));
                     foreach ($coursS as $key => $cours) {
                         $desc = (strlen($cours->description) < 100) ? $cours->description : substr($cours->description, 0, 100) . ' ...';
                 ?>
-                        <div class="col-lg-3 col-md-6" data-aos="fade-up-">
-                            <div class="box featured">
+                        <div class="col-lg-3 col-md-6 mb-4 d-flex">
+                            <div class="box featured flex-fill h-100 d-flex flex-column">
                                 <h3><?php echo ucfirst($cours->titre); ?></h3>
                                 <h4><sup>$</sup><?php echo ($cours->prix) ?><span> / formation</span></h4>
                                 <h5 class="mb-0"><?php echo ($cours->date_s); ?></h5>
                                 <p class="mb-0">&nbsp;<b>au</b>&nbsp;</p>
                                 <h5><?php echo ($cours->date_e); ?></h5>
-                                <p>
-                                    <?php echo ($desc); ?>
-                                </p>
-                                <!-- <ul>
-                                <li>Aida dere</li>
-                                <li>Nec feugiat nisl</li>
-                                <li>Nulla at volutpat dola</li>
-                                <li class="na">Pharetra massa</li>
-                                <li class="na">Massa ultricies mi</li>
-                            </ul> -->
-                                <div class="btn-wrap">
+                                <p><?php echo ($desc); ?></p>
+                                <div class="btn-wrap mt-auto">
                                     <a href="?page=detailcours&_sv=<?php echo (sha1('reitec-null')) ?>&_cbname=<?php echo (base64_encode($cours->titre)); ?>&_cb=<?php echo ($cours->id) ?>&_id=<?php echo ($cours->id) ?>" class="btn-buy bg-danger">Démander cette formation</a>
                                 </div>
                             </div>
                         </div>
-                        <!--  -->
                     <?php
                     }
                 } else {
@@ -498,13 +486,12 @@
                         <span class="text-secondary">
                             <b><i class="fa fa-circle-o mr-2 text-prmy"></i> Aucune formation disponible pour le moment</b>
                         </span>
-                        </li>
-                    <?php
-                }
-                    ?>
                     </div>
-
+                <?php
+                }
+                ?>
             </div>
+
     </section>
     <!-- End Pricing Section -->
 </main>

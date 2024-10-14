@@ -10,10 +10,10 @@ class Config
     // public $userName = 'root';
     // public $password = '';
     // ================================
-    public $dbName = '_db_reitec_info';
-    public $server = '109.235.70.154';
-    public $userName = 'remote_user';
-    public $password = 'pa$$word';
+    public $dbName = 'reite2176564';
+    public $server = '127.0.0.1';
+    public $userName = 'reite2176564';
+    public $password = 'qX1@EaJzKcnYTJX';
     // ================================
     private $statusData = 1;
     private $port = 3306;

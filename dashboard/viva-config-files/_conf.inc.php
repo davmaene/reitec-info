@@ -6,10 +6,11 @@ class GeneConnexion
     // private $_passWord = ''; // user password to access db
     // private $_host = "localhost";
     // =============================
-    private $_dbName = "_db_reitec_info"; //name of database reite1501280
-    private $_userName = "remote_user"; // user name to acces db zaqxswcde1234567890
-    private $_passWord = 'pa$$word'; // user password to access db
-    private $_host = "109.235.70.154";
+    private $_dbName = "reite2176564"; //name of database reite1501280
+    private $_host = "127.0.0.1";
+    private $_userName = "reite2176564"; // user name to acces db zaqxswcde1234567890
+    private $_passWord = 'qX1@EaJzKcnYTJX'; // user password to access db
+    // ===============================
 
     private $datastatus = 'datastatus';
     public function __construct() {}
