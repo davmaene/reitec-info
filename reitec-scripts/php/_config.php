@@ -5,15 +5,15 @@ session_start();
 class Config
 {
     // ================================
-    // public $dbName = '_db_reitec_info';
-    // public $server = 'localhost';
-    // public $userName = 'root';
-    // public $password = '';
+    public $dbName = '_db_reitec_info';
+    public $server = 'localhost';
+    public $userName = 'root';
+    public $password = '';
     // ================================
-    public $dbName = 'reite2176564';
-    public $server = '127.0.0.1';
-    public $userName = 'reite2176564';
-    public $password = 'qX1@EaJzKcnYTJX';
+    // public $dbName = 'reite2176564';
+    // public $server = '127.0.0.1';
+    // public $userName = 'reite2176564';
+    // public $password = 'qX1@EaJzKcnYTJX';
     // ================================
     private $statusData = 1;
     private $port = 3306;
@@ -210,7 +210,7 @@ class Config
                     return 200;
                 } else return 403;
             } catch (PDOException $e) {
-                var_dump($e->getMessage());
+                // var_dump($e->getMessage());
                 return 500;
             }
         } else return 500;
@@ -258,6 +258,53 @@ class Config
                     array_push($tbCours, $cours);
                     // }
                     return $tbCours;
+                } else return array();
+            } catch (PDOException $e) {
+                return $e->getMessage();
+            }
+        } else return array();
+    }
+    public function getFormarionByID($idx)
+    {
+        $idx = (int) $idx;
+        $cnx = $this->onConn();
+        if ($cnx !== null) {
+            $req = $cnx->prepare('SELECT * FROM 
+                tbl_formation JOIN 
+                tbl_facilitateur JOIN 
+                tbl_content JOIN 
+                tbl_categ_cours JOIN 
+                tbl_subcateg_cours ON 
+                tbl_formation.idCateg = tbl_categ_cours.id AND 
+                tbl_formation.idsubcateg = tbl_subcateg_cours.id AND 
+                tbl_formation.idcontent = tbl_content.id AND
+                tbl_formation.idfacilitateur = tbl_facilitateur.id AND
+                tbl_facilitateur.datastatus = ? AND 
+                tbl_content.datastatus = ? AND
+                tbl_formation.id = ?');
+            try {
+                $req->execute([(int)$this->statusData, (int)$this->statusData, (int)$idx]);
+                $req = $req->fetch();
+                if (!empty($req)) {
+                    $tbCours = [];
+                    $cours = new Formation(
+                        $req['id'],
+                        $req['title'],
+                        $req['datestart'],
+                        $req['dateend'],
+                        $req['couts'],
+                        $req['synthese'],
+                        [
+                            $req['nom'],
+                            $req['prenom'],
+                            $req['photo']
+                        ],
+                        $req['content'],
+                        $req['category'],
+                        $req['subcateg']
+                    );
+                    array_push($tbCours, $cours);
+                    return $tbCours[0];
                 } else return array();
             } catch (PDOException $e) {
                 return $e->getMessage();

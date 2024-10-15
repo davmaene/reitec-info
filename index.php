@@ -187,7 +187,7 @@
                         <ul>
                             <li><i class="bx bx-chevron-right text-white"></i> <a href="?page=home" class="text-white">Acceuil</a></li>
                             <li><i class="bx bx-chevron-right text-white"></i> <a href="?page=cours" class="text-white">Cours</a></li>
-                            <li><i class="bx bx-chevron-right text-white"></i> <a href="?page=formation" class="text-white">Formations</a></li>
+                            <li><i class="bx bx-chevron-right text-white"></i> <a href="?page=formations" class="text-white">Formations</a></li>
                             <li><i class="bx bx-chevron-right text-white"></i> <a href="?page=services" class="text-white">Nos Services</a></li>
                             <li><i class="bx bx-chevron-right text-white"></i> <a href="?page=galeries" class="text-white">Galeries</a></li>
                             <li><i class="bx bx-chevron-right text-white"></i> <a href="?page=contact" class="text-white">Contact</a></li>

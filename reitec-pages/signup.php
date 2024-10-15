@@ -56,7 +56,7 @@
                         <input type="text" id="pre-cnnx" name="pre_cnnx" class="form-control" placeholder="entrer votre prenom ... ">
                     </div> -->
                     <div class="form-group">
-                        <label for="add-cnnx">Adresse <small class="badge badge-default border">ce champs n'est pas obligatoir</small></label>
+                        <label for="add-cnnx">Adresse <small class="badge badge-default border text-danger">ce champs n'est pas obligatoir</small></label>
                         <input type="text" id="add-cnnx" name="add_cnnx" class="form-control" placeholder="Q. ... C. ... Av. ... Ville ...">
                     </div>
                     <!-- <div class="form-group d-none">
@@ -145,17 +145,18 @@
                             <option value="organisation">Une Organisation ou association</option>
                         </select>
                     </div>
-                    <div class="form-group d-none btn-download-">
+                    <div class="form-group d-none btn-download">
                         <h6 class="mb-2 font-weight-bold">Télécharger le formulaire ici !</h6>
                         <a href="reitec-files/attached-files/RTEC_Formulaire_de_Demande_de_Formation.docx" class="btn btn-default border btn-sm btn-primary w-100">
                             <span>Telecharger le formulaire de demande de formation</span>
                         </a>
-                        <span>
+                        <small>
+                            <i class="fa fa-info"></i>
                             Veillez devoir envoyer ce formulaire à l'adresse : <br>
                             <b class="text-primary">
-                                <a href="mailto:info@reitec-info.org">info@reitec-info.org</a>
+                                <a href="mailto:info@reitecinfo.org">info@reitecinfo.org</a>
                             </b> Et nous vous reontacterons dans le plus bref délais
-                        </span>
+                        </small>
                     </div>
                 </div>
                 <div class="col-lg-12 border rounded section-bg py-3 mt-2">

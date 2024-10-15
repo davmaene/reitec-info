@@ -1,12 +1,124 @@
 <?php
 // ------------------------------------------------------
 include_once('../../reitec-model/model.cours.php');
+include_once('../../reitec-model/model.formation.php');
 include_once('../../reitec-model/model.facilitateur.php');
 include_once('../../reitec-model/model.student.php');
 include_once('_config.php');
 // --------------------------------------------------------
 $cfg = new Config();
 
+function envoyerMailEquipe($emailEquipe, $nomClient, $postnomClient, $emailClient, $titreFormation, $dateDebut, $dateFin)
+{
+    $sujet = "Nouvelle demande de formation : $titreFormation";
+    $message = "
+        <html>
+        <head>
+            <title>Nouvelle demande de formation reçue</title>
+            <style>
+                body { font-family: Arial, sans-serif; color: #333; }
+                .container { width: 100%; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; }
+                .header { background-color: #f5f5f5; padding: 10px; text-align: center; }
+                .content { padding: 20px; }
+                .footer { text-align: center; padding: 10px; font-size: 12px; color: #777; }
+            </style>
+        </head>
+        <body>
+            <div class='container'>
+                <div class='header'>
+                    <h2>Nouvelle demande de formation</h2>
+                </div>
+                <div class='content'>
+                    <p>Bonjour équipe Reitec,</p>
+                    <p>Une nouvelle demande de formation a été reçue. Voici les détails de la demande :</p>
+                    <ul>
+                        <li><strong>Nom du client :</strong> $nomClient</li>
+                        <li><strong>Postnom du client :</strong> $postnomClient</li>
+                        <li><strong>Email du client :</strong> $emailClient</li>
+                        <li><strong>Titre de la formation :</strong> $titreFormation</li>
+                        <li><strong>Date de début :</strong> $dateDebut</li>
+                        <li><strong>Date de fin :</strong> $dateFin</li>
+                    </ul>
+                    <p>Merci de traiter cette demande dès que possible. Si vous avez besoin de plus d'informations, veuillez contacter le client.</p>
+                    <p>Cordialement,<br>L'équipe de Reitec</p>
+                </div>
+                <div class='footer'>
+                    <p>Reitec - Service Formation</p>
+                </div>
+            </div>
+        </body>
+        </html>
+    ";
+
+    // En-têtes de l'email pour un contenu HTML
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From: info@reitecinfo.org" . "\r\n";
+    $headers .= "Reply-To: $emailClient" . "\r\n";
+
+    // Envoi de l'email
+    if (mail($emailEquipe, $sujet, $message, $headers)) {
+        // echo "L'email de notification a été envoyé avec succès à l'équipe Reitec";
+        return true;
+    } else {
+        // echo "L'envoi de l'email a échoué.";
+        return false;
+    }
+}
+function envoyerMailFormationAuClient($emailClient, $nomClient, $postnomClient, $titreFormation, $dateDebut, $dateFin, $prixFormation)
+{
+    $sujet = "Confirmation de votre demande de formation : $titreFormation";
+    $message = "
+        <html>
+        <head>
+            <title>Confirmation de votre demande de formation</title>
+            <style>
+                body { font-family: Arial, sans-serif; color: #333; }
+                .container { width: 100%; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; }
+                .header { background-color: #f5f5f5; padding: 10px; text-align: center; }
+                .content { padding: 20px; }
+                .footer { text-align: center; padding: 10px; font-size: 12px; color: #777; }
+            </style>
+        </head>
+        <body>
+            <div class='container'>
+                <div class='header'>
+                    <h2>Merci pour votre demande, $nomClient $postnomClient</h2>
+                </div>
+                <div class='content'>
+                    <p>Nous tenons à vous remercier pour l'intérêt que vous portez à notre programme de formation. Nous avons bien reçu votre demande pour la formation intitulée <strong>$titreFormation</strong>.</p>
+                    <p>Voici les détails de la formation :</p>
+                    <ul>
+                        <li><strong>Date de début :</strong> $dateDebut</li>
+                        <li><strong>Date de fin :</strong> $dateFin</li>
+                        <li><strong>Prix de la formation :</strong>$prixFormation</li>
+                    </ul>
+                    <p>Notre équipe vous contactera sous peu avec les informations supplémentaires nécessaires. Si vous avez des questions, n'hésitez pas à nous contacter.</p>
+                    <p>Encore merci pour votre confiance, et à bientôt !</p>
+                </div>
+                <div class='footer'>
+                    <p>L'équipe de formation <a href='https://reitecinfo.org'>Reitec Info</a> </p>
+                </div>
+            </div>
+        </body>
+        </html>
+    ";
+
+    // En-têtes de l'email pour un contenu HTML
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From: info@reitecinfo.org" . "\r\n";
+    $headers .= "Reply-To: formation@reitecinfo.org" . "\r\n";
+
+    // Envoi de l'email
+    if (mail($emailClient, $sujet, $message, $headers)) {
+        // echo "L'email de confirmation a été envoyé avec succès à $emailClient";
+        return true;
+    } else {
+        // echo "L'envoi de l'email a échoué.";
+        return false;
+    }
+}
 function _onCreatingSession()
 {
     $_SESSION['reitec-std-session'] = $_POST['email_cnnx'];
@@ -37,9 +149,6 @@ function _onConnexion($cfg)
 function onAddingToMyLSTCRS($conf, $me, $crs)
 {
     // var_dump($conf);
-    var_dump($me);
-    var_dump($crs);
-    return false;
     $accLVL = 1122;
     $now = date('Y-m-d');
     $state = 0; // 0 means not activate : 1 ie. active 
@@ -134,7 +243,7 @@ function onAddingToMyLSTCRS($conf, $me, $crs)
                                 <h4>Bonjour;</h4>
                                 <p>
                                     Une nouvelle démande de formation venant de ' . $name . ' à la formation ' . $formtitle . '
-                                    pour plus de détail visiter le pannel <a href="https://reitec-info.org/dashboard/" target="_blank" rel="noopener noreferrer">ici</a>
+                                    pour plus de détail visiter le pannel <a href="https://admin.reitecinfo.org/" target="_blank" rel="noopener noreferrer">ici</a>
                                 </p>
                                 <h4>Informations</h4>
                                 <p>
@@ -167,7 +276,7 @@ function onAddingToMyLSTCRS($conf, $me, $crs)
                     </body>
                 </html>
                 ';
-            $im['from'] = 'notification@reitecinfo.org';
+            $im['from'] = 'formation@reitecinfo.org';
             $im['subject'] = '<< DEMANDE DE FORMATION >>';
             $im['email'] = 'information@reitecinfo.org';
             $conf->sendMail($im);
@@ -218,6 +327,7 @@ if (isset($_GET['_updateRMT'])) {
     }
 }
 if (isset($_POST['email_cnnx'])) {
+    $formation = $cfg->getFormarionByID((int)$_POST['idformation']);
     $clause = '';
     $tbl = 'tbl_etudiant';
     $tble = 'tbl_etudier';
@@ -343,6 +453,14 @@ if (isset($_POST['email_cnnx'])) {
             $cnnx = (int) $cnnx;
             switch ($cnnx) {
                 case 200:
+                    $formation = $cfg->getFormarionByID($_POST['idformation']);
+                    $titre = $formation->titre;
+                    $date_s = $formation->date_s;
+                    $date_e = $formation->date_e;
+                    $prix = $formation->prix. "$";
+                    mail("developer.david.maene@gmail.com", "Testing send mail", "Pas mal david maene");
+                    envoyerMailFormationAuClient($email, $_POST['nom_cnnx'], $_POST['pst_cnnx'], $titre, $date_s, $date_e, $prix);
+                    envoyerMailEquipe("formation@reitecinfo.org", $_POST['nom_cnnx'], $_POST['pst_cnnx'], $email, $titre, $date_s, $date_e);
                     echo (200);
                     break;
                 case 403:
@@ -440,7 +558,7 @@ if (isset($_POST['email'])) {
                                 <p>
                                     ' . strtolower($_POST['message']) . '
                                 </p>
-                                pour plus de détail visiter le pannel <a href="https://reitec-info.org/dashboard/index.php?page=readmail" target="_blank" rel="noopener noreferrer">ici</a>
+                                pour plus de détail visiter le pannel <a href="https://reitecinfo.org/dashboard/index.php?page=readmail" target="_blank" rel="noopener noreferrer">ici</a>
                                 <p>Merci ,<br><br> l\'Equipe <strong>Reitec - Info</strong></p>
                             </div>
                         </div>
